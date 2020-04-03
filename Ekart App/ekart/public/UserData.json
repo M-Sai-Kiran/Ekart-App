@@ -1,0 +1,22 @@
+[
+    {
+        "userId" : 1,
+        "username" : "admin",
+        "email":"admin@infosys.com",
+        "password":"Admin@123",
+        "cart":{
+            "cartProd":[],
+            "cartValue":0
+        }
+    },
+    {
+        "userId" : 2,
+        "username" : "super admin",
+        "email":"superadmin@infosys.com",
+        "password":"Supadmin@123",
+        "cart":{
+            "cartProd":[],
+            "cartValue":0
+        }
+    }
+]
