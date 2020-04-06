@@ -1,4 +1,5 @@
 import React,{createContext,Component} from 'react';
+import Cookies from 'js-cookie';
 
 //context creation
 export const userContext = createContext();
@@ -11,7 +12,7 @@ class UserProvider extends Component{
         "email":"guest@guest.com",
         mobile:'',
         "password":"",
-        cartProd:[],
+        cartProd:JSON.parse(Cookies.get('cartProd')) || [],
         "cartValue":0,
         updateUser : (name,id,mobile)=> {
             this.setState({
@@ -34,11 +35,23 @@ class UserProvider extends Component{
             this.setState({
                 cartProd:cartarr
             })
+            if(Cookies.get('cartProd') === undefined){
+                Cookies.set('cartProd',JSON.stringify(cartarr),{expires:7});
+            }
+            else{
+                Cookies.set('cartProd',JSON.stringify(cartarr))
+            }
         },
         replaceCart : (cartarr)=>{
             this.setState({
                 cartProd:cartarr
             })
+            if(Cookies.get('cartProd') === undefined){
+                Cookies.set('cartProd',JSON.stringify(cartarr),{expires:7});
+            }
+            else{
+                Cookies.set('cartProd',JSON.stringify(cartarr))
+            }
         }
     }
 
