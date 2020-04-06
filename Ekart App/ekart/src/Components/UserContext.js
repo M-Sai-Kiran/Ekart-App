@@ -12,7 +12,7 @@ class UserProvider extends Component{
         "email":"guest@guest.com",
         mobile:'',
         "password":"",
-        cartProd:JSON.parse(Cookies.get('cartProd')) || [],
+        cartProd:Cookies.get('cartProd') === undefined?[]: JSON.parse(Cookies.get('cartProd')),
         "cartValue":0,
         updateUser : (name,id,mobile)=> {
             this.setState({
